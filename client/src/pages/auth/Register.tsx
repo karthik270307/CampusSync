@@ -6,12 +6,12 @@ import axios from "axios";
 
 const API_URL = "/api";
 
-type RoleType = "student" | "faculty_advisor" | "hod" | "admin" | "dean";
+import type { UserRole } from "../../types/auth";
 
 const Register = () => {
   const navigate = useNavigate();
 
-  const [role, setRole] = useState<RoleType>("student");
+  const [role, setRole] = useState<UserRole>("student");
   
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");

@@ -3,7 +3,10 @@ export type UserRole =
   | "club_organizer"
   | "faculty_advisor"
   | "hod"
-  | "admin";
+  | "dean"
+  | "venue_admin"
+  | "admin"
+  | "super_admin";
 
 export interface User {
   id: string;

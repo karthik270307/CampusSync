@@ -1,11 +1,9 @@
 import { useEffect, useState } from "react";
 import { CheckCircle2, Clock, FileText, MapPin, Users, Calendar, AlertCircle } from "lucide-react";
 import { getMyApprovals, approveApproval, requestRevision, rejectApproval } from "../../services/approvalService";
-import { useAuth } from "../../contexts/AuthContext";
 import { useNavigate } from "react-router-dom";
 
 export default function Approvals() {
-  const { user } = useAuth();
   const navigate = useNavigate();
   const [approvals, setApprovals] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
