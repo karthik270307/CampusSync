@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from "react"; // Forcing TS re-evaluation
 import { CheckCircle2, Clock, FileText, MapPin, Users, Calendar, AlertCircle } from "lucide-react";
 import { getMyApprovals, approveApproval, requestRevision, rejectApproval } from "../../services/approvalService";
 import { useNavigate } from "react-router-dom";
