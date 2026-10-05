@@ -1,4 +1,5 @@
 import { Request, Response } from "express";
+import { AuthenticatedRequest } from "../middleware/authenticate.js";
 
 import {
   getApprovalWorkflow,
@@ -15,7 +16,7 @@ import {
  * to the currently logged-in reviewer.
  */
 export const getMyApprovalRequests = async (
-  req: Request,
+  req: AuthenticatedRequest,
   res: Response
 ) => {
   try {
@@ -85,7 +86,7 @@ export const getWorkflow = async (
   }
 };
 
-export const approve = async (req: Request, res: Response) => {
+export const approve = async (req: AuthenticatedRequest, res: Response) => {
   try {
     if (!req.user) {
       return res.status(401).json({ success: false, message: "Authentication required." });
@@ -99,7 +100,7 @@ export const approve = async (req: Request, res: Response) => {
   }
 };
 
-export const requestRevision = async (req: Request, res: Response) => {
+export const requestRevision = async (req: AuthenticatedRequest, res: Response) => {
   try {
     if (!req.user) {
       return res.status(401).json({ success: false, message: "Authentication required." });
@@ -120,7 +121,7 @@ export const requestRevision = async (req: Request, res: Response) => {
   }
 };
 
-export const reject = async (req: Request, res: Response) => {
+export const reject = async (req: AuthenticatedRequest, res: Response) => {
   try {
     if (!req.user) {
       return res.status(401).json({ success: false, message: "Authentication required." });
