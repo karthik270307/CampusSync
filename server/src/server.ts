@@ -67,12 +67,14 @@ app.get(
 
 const PORT = process.env.PORT || 5000;
 
-const startServer = async () => {
-  await connectDatabase();
+// Connect to the database globally so Vercel can reuse the connection
+connectDatabase().catch(console.error);
 
+// Only listen if we are NOT running in a Vercel serverless environment
+if (process.env.NODE_ENV !== "production" || !process.env.VERCEL) {
   app.listen(PORT, () => {
     console.log(`CampusSync API running on http://localhost:${PORT}`);
   });
-};
+}
 
-startServer();
+export default app;
